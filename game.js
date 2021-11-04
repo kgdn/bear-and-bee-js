@@ -13,26 +13,24 @@ function Bear() {
   };
 
   this.display = function () {
-    this.fitBounds();
+    this.fitBounds(); //w e add this instruction to keep bear within board
     this.htmlElement.style.left = this.x + "px";
     this.htmlElement.style.top = this.y + "px";
     this.htmlElement.style.display = "block";
   };
 
-  this.fitBounds = function () {
+  this.fitBounds = function () { // 
     let parent = this.htmlElement.parentElement;
-    let iw = this.htmlElement.offsetWidth;
-    let ih = this.htmlElement.offsetHeight;
-    let l = parent.offsetLeft;
-    let t = parent.offsetTop;
+    let offsetHTMLWidth = this.htmlElement.offsetWidth;
+    let offsetHTMLHeight = this.htmlElement.offsetHeight;
     let w = parent.offsetWidth;
     let h = parent.offsetHeight;
 
     if (this.x < 0) this.x = 0;
-    if (this.x > w - iw) this.x = w - iw;
+    if (this.x > w - offsetHTMLWidth) this.x = w - offsetHTMLWidth;
 
     if (this.y < 0) this.y = 0;
-    if (this.y > h - ih) this.y = h - ih;
+    if (this.y > h - offsetHTMLHeight) this.y = h - offsetHTMLHeight;
   };
 }
 
@@ -116,8 +114,8 @@ class Bee {
     this.fitBounds = function () {
       //Checks to make sure if the bees stay in the board space
       let parent = this.htmlElement.parentElement;
-      let iw = this.htmlElement.offsetWidth;
-      let ih = this.htmlElement.offsetHeight;
+      let offsetHTMLWidth = this.htmlElement.offsetWidth;
+      let offsetHTMLHeight = this.htmlElement.offsetHeight;
       let w = parent.offsetWidth;
       let h = parent.offsetHeight;
 
@@ -126,8 +124,8 @@ class Bee {
       }
 
       // Conditional Statement to prevent the bear from going below the maximum value
-      if (this.x > w - iw) {
-        this.x = w - iw;
+      if (this.x > w - offsetHTMLWidth) {
+        this.x = w - offsetHTMLWidth;
       }
 
       // Conditional Statement to prevent the bee from going below the minimum value of 'y'
@@ -135,8 +133,8 @@ class Bee {
         this.y = 0;
       }
       // Conditional Statement to prevent the bee from going below the minimum value of 'y'
-      if (this.y > h - ih) {
-        this.y = h - ih;
+      if (this.y > h - offsetHTMLHeight) {
+        this.y = h - offsetHTMLHeight;
       }
     };
   }
@@ -245,8 +243,8 @@ function updateBees() {
     updateTimer = setTimeout("updateBees()", period);
   } 
   else {
-    alert("Game is over. You had " + score + " stings");
-    score = "Game Over";
+    alert("Game is over. You were stung " + score + " times!");
+    score = "Game Over!";
     hits.innerHTML = score;
     updateTimer = clearTimeout();
   }
