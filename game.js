@@ -174,8 +174,8 @@ function createBeeImg(wNum) {
 
 /* Function to generate and return a random integer between 0 and max */
 function getRandomInt(max) {
-  // Returns a random value between 0 (inclusive) and the 'max' variable (inclusive)
-  return Math.floor(Math.random() * (max - 0 + 1) + 0);
+  // Returns a random value between 0 and max.
+  return Math.floor(Math.random() * max);
 }
 
 function initBees() {
@@ -210,7 +210,7 @@ function addBee() {
 
   var bee = new Bee(nbBees); // Creates a bee
   bee.display(); // Displays the bee on screen
-  bees.push(bee); // Adds the bee to the bees array
+  bees.push(bee); // Pushes (Adds) the bee to the bees array
 
   document.getElementById("nbBees").value = nbBees;
 }
@@ -232,7 +232,7 @@ function moveBees() {
 
 //Updates the loop for the game
 function updateBees() {
-  //Move the bees randomly
+  //Calls the moveBees function so that the bees can move randomly
   moveBees();
 
   //Uses a fixed update period
@@ -251,8 +251,6 @@ function updateBees() {
     updateTimer = clearTimeout();
   }
 }
-
-/* Methods to count the stings */
 
 function isHit(defender, offender) {
   // Checks if the bear and bee images (bear = defender, bee = offender) overlap
