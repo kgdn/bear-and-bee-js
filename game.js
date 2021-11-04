@@ -175,7 +175,7 @@ function createBeeImg(wNum) {
 /* Function to generate and return a random integer between 0 and max */
 function getRandomInt(max) {
   // Returns a random value between 0 and max.
-  return Math.floor(Math.random() * max);
+  return Math.floor(Math.random() * (max - 0 + 1) + 0);
 }
 
 function initBees() {
