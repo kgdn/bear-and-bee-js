@@ -1,8 +1,4 @@
-# F28WP Lab 2 - Bear and Bee Game
-
-F28WP - Web Programming Lab 2.
-
-Made for Heriot-Watt University, Edinburgh.
+Bear and Bee Game
 
 ## A couple of details about this project
 
